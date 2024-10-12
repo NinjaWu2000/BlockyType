@@ -1,0 +1,382 @@
+meta:
+engine: 4.1.0
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+  nicenanoX: 18+4+2
+  nicenanoY: 43+4
+  $default_width: cx
+  $default_height: cy
+points:
+  zones:
+    matrix:
+      key:
+        padding: 1ky + 1
+        spread: 1kx+ 2
+      columns:
+        outer:
+          key.column_net: P20
+          rows:
+            down.key:
+              led_in: led_20
+              led_out: led_x
+            home.key:
+              led_in: led_19
+              led_out: led_20
+            up.key:
+              led_in: led_18
+              led_out: led_19
+        pinky:
+          key:
+            stagger: 5
+            column_net: P21
+          rows:
+            down.key:
+              led_in: led_15
+              led_out: led_16
+            home.key:
+              led_in: led_16
+              led_out: led_17
+            up.key:
+              led_in: led_17
+              led_out: led_18
+        ring:
+          key:
+            splay: -10
+            origin: [-15, -kx]
+            stagger: 10
+            column_net: P18
+          rows:
+            down.key:
+              led_in: led_14
+              led_out: led_15
+            home.key:
+              led_in: led_13
+              led_out: led_14
+            up.key:
+              led_in: led_12
+              led_out: led_13
+        middle:
+          key:
+            stagger: 10
+            column_net: P19
+          rows:
+            down.key:
+              led_in: led_9
+              led_out: led_10
+            home.key:
+              led_in: led_10
+              led_out: led_11
+            up.key:
+              led_in: led_11
+              led_out: led_12
+        index:
+          key:
+            stagger: -10
+            column_net: P15
+          rows:
+            down.key:
+              led_in: led_8
+              led_out: led_9
+            home.key:
+              led_in: led_7
+              led_out: led_8
+            up.key:
+              led_in: led_6
+              led_out: led_7
+        inner:
+          key:
+            stagger: -5
+            column_net: P14
+          rows:
+            down.key:
+              led_in: led_3
+              led_out: led_4
+            home.key:
+              led_in: led_4
+              led_out: led_5
+            up.key:
+              led_in: led_5
+              led_out: led_6
+      rows:
+        down.row_net: P6
+        home.row_net: P5
+        up.row_net: P4
+    thumb:
+      key:
+        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: matrix_inner_up
+        shift: [16, -(1ky + 8)]
+        rotate: -15
+      columns:
+        home:
+          key.column_net: P14
+          rows:
+            home.key:
+              led_in: led_2
+              led_out: led_3
+        innermost:
+          key:
+            splay: -20
+            origin: [-8, -60]
+            column_net: P16
+          rows:
+            home.key:
+              # This is led_1
+              led_in: P0
+              led_out: led_2
+      rows:
+        home:
+          shift: [0, -2ky]
+          row_net: P7
+  rotate: 10
+outlines:
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+      bound: false
+  board:
+    - what: polygon
+      points:
+        - ref: matrix_outer_up
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_outer_up
+          shift: [0.5kx, 0.5py]
+        - ref: matrix_pinky_up
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_pinky_up
+          shift: [0.5px, 0.5py]
+        - ref: matrix_ring_up
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_ring_up
+          shift: [0.5kx, 0.5py]
+        - ref: matrix_middle_up
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_middle_up
+          shift: [0.5px, 0.5py]
+        - ref: matrix_index_up
+          shift: [-0.5kx, 0.5py]
+        - ref: matrix_index_up
+          shift: [0.5px, 0.5py]
+        - ref: matrix_inner_up
+          shift: [-0.5kx, 0.5py]
+        - ref: matrix_inner_up
+          shift: [0.5kx + nicenanoX, 0.5py]
+        - ref: thumb_innermost_home
+          shift: [-5.5, 0.5py]
+        - ref: thumb_innermost_home
+          shift: [0.5px, 0.5py]
+        - ref: thumb_innermost_home
+          shift: [0.5px, -0.5py]
+        - ref: thumb_innermost_home
+          shift: [-10.6, -0.5py]
+        - ref: thumb_home_home
+          shift: [0.5px, -0.5py]
+        - ref: thumb_home_home
+          shift: [-16, -0.5py]
+        - ref: matrix_index_down
+          shift: [0.5kx, -0.5py]
+        - ref: matrix_index_down
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_middle_down
+          shift: [0.5kx, -0.5py]
+        - ref: matrix_middle_down
+          shift: [-0.5kx, -0.5py]
+        - ref: matrix_ring_down
+          shift: [0.5px, -0.5py]
+        - ref: matrix_ring_down
+          shift: [-0.5kx, -0.5py]
+        - ref: matrix_pinky_down
+          shift: [0.5px, -0.5py]
+        - ref: matrix_pinky_down
+          shift: [-0.5kx, -0.5py]
+        - ref: matrix_outer_down
+          shift: [0.5px, -0.5py]
+        - ref: matrix_outer_down
+          shift: [-0.5px, -0.5py]
+      fillet: 1
+  _keycaps:
+    - what: rectangle
+      where: true
+      size: [17.5, 16.5]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+      fillet: 0
+pcbs:
+  BlockyType:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          show_keycaps: true
+          reverse: true
+          hotswap: true
+          solder: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          include_tht: false
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-7.6, -0.8]
+          rotate: 90
+      led:
+        what: sk6812minie
+        where: true
+        adjust:
+          shift: [0, -5]
+        params:
+          reversible: true
+          P1: VCC_LED
+          P2: "{{key.led_in}}"
+          P4: "{{key.led_out}}"
+      led_switch:
+        what: switch_power
+        params:
+          reverse: true 
+          from: VCC_LED
+          to: VCC
+        where:
+          ref: matrix_inner_down
+          shift: [30.5, -11]
+      reset_switch:
+        what: switch_reset
+        params:
+          reverse: true
+        where:
+          ref: matrix_inner_down
+          shift: [30, -19]
+      power_switch:
+        what: switch_power
+        params:
+          reverse: true
+        where:
+          ref: matrix_inner_down
+          shift: [30.5, -2]
+      battery_connector:
+        what: battery_connector_jst_ph_2
+        params:
+          reversible: true
+        where:
+          ref: matrix_inner_down
+          shift: [21.4, -24] #*Correct Position if you know the type of battery
+          rotate: 180
+      nice!nano:
+        what: mcu_nice_nano
+        params:
+          reversible: true
+          reverse_mount: true
+        where:
+          ref: matrix_inner_up
+          shift: [1px, -0.5ky]
+      nice!view:
+        what: nice_view
+        params:
+          reverse: true
+          MOSI: P2
+          SCK: P3
+          CS: P1
+        where:
+          ref: matrix_inner_up
+          shift: [1px, -13]
+      textCu:
+        what: utility_text
+        params:
+          layer: Cu
+          reversible: true
+          height: 3
+          width: 2.2
+          text: BlockyType
+          face: Inflammable Age
+          bold: true
+        where:
+          ref: matrix_inner_down
+          shift: [0.5kx + 8, -0.5ky]
+      textMask:
+        what: utility_text
+        params:
+          layer: Mask
+          reversible: true
+          height: 3
+          width: 2.2
+          text: BlockyType
+          face: Inflammable Age
+          bold: true
+        where:
+          ref: matrix_inner_down
+          shift: [0.5kx + 8, -0.5ky]
+      mounting_hole_top_left:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_outer_up
+          shift: [0.5kx+1, -0.5ky+5]
+      mounting_hole_bottom_left:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_outer_down
+          shift: [0.5kx+1, -0.5ky+8]
+      mounting_hole_top_middel:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_ring_up
+          shift: [0.5kx+1, 0]
+      mounting_hole_bottom_middel:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_ring_down
+          shift: [0.5kx+1, 0.5ky]
+      mounting_hole_top_right:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_inner_up
+          shift: [0.5kx, -3]
+      mounting_hole_bottom_right:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_inner_down
+          shift: [-5, -16]
+      mounting_hole_bottom_far:
+        what: mounting_hole_npth
+        where:
+          ref: thumb_innermost_home
+          shift: [-0.5kx-4, -3]
+      display_cover_mounting_hole_left:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_inner_down
+          shift: [0.5kx + 4, 1]
+      display_cover_mounting_hole_right:
+        what: mounting_hole_npth
+        where:
+          ref: matrix_inner_down
+          shift: [26, -6.5]
+cases:
+  _test1:
+    - name: board
+      extrude: 2
+  _test2:
+    - name: _keycaps
+      extrude: 4
+  test:
+    - what: case
+      name: _test1
+    - what: case
+      name: _test2
+      operation: add
