@@ -245,6 +245,7 @@ pcbs:
         params:
           reversible: true
           P1: VCC_LED
+          #WARNING: The pins for DIN and DOUT are reversed, which means the chain works backwards
           P2: "{{key.led_in}}"
           P4: "{{key.led_out}}"
       led_switch:
